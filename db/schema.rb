@@ -11,7 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222162600) do
+ActiveRecord::Schema.define(version: 20141222165429) do
+
+  create_table "companies", force: true do |t|
+    t.string   "name"
+    t.string   "category"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "component_ingredients", force: true do |t|
+    t.integer  "component_id"
+    t.integer  "ingredient_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "component_ingredients", ["component_id"], name: "index_component_ingredients_on_component_id"
+  add_index "component_ingredients", ["ingredient_id"], name: "index_component_ingredients_on_ingredient_id"
+
+  create_table "components", force: true do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "components", ["product_id"], name: "index_components_on_product_id"
 
   create_table "ingredients", force: true do |t|
     t.string   "name"
@@ -37,5 +63,14 @@ ActiveRecord::Schema.define(version: 20141222162600) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "products", force: true do |t|
+    t.integer  "company_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "products", ["company_id"], name: "index_products_on_company_id"
 
 end
