@@ -10,6 +10,12 @@
   <%= @company.category %>
 </p>
 
+<% @company.products.each do |product| %>
+  <%= div_for(product) do %>
+    <%= link_to product.name, [@company, product] %>
+  <% end %>
+<% end %>
+
 
 <%= link_to 'New Product', new_company_product_path(@company) %>
 <br />
