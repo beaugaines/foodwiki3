@@ -1,0 +1,35 @@
+food_product
+  t.string :name
+  has_many :components
+
+component
+  t.string :name
+  has_many :ingredients
+
+ingredient
+  t.string :name
+  has_one :nutrient_profile
+
+nutrient_profile
+  t.decimal  "water"
+  t.decimal  "energy_kcal"
+  t.decimal  "protein"
+  t.decimal  "lipid_total"
+  t.decimal  "ash"
+  t.decimal  "carbohydrate"
+  t.decimal  "fiber"
+  t.decimal  "sugar_total"
+  t.decimal  "calcium"
+  t.decimal  "iron"
+  t.decimal  "magnesium"
+  t.decimal  "phosphorous"
+  t.decimal  "potassium"
+  t.decimal  "sodium"
+  t.decimal  "zinc"
+  t.decimal  "copper"
+  t.decimal  "manganese"
+  t.decimal  "selenium"
+  t.decimal  "vitamin_c"
+  t.datetime "created_at"
+  t.datetime "updated_at"
+
