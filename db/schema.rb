@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141222165429) do
+ActiveRecord::Schema.define(version: 20141222184327) do
 
   create_table "companies", force: true do |t|
     t.string   "name"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20141222165429) do
     t.integer  "ingredient_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unit"
+    t.decimal  "quantity",      precision: 8, scale: 2
   end
 
   add_index "component_ingredients", ["component_id"], name: "index_component_ingredients_on_component_id"

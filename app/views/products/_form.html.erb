@@ -17,12 +17,14 @@
   </div>
 
   <h3>Components</h3>
-  <%= f.fields_for :components do |component| %>
-    <%= render 'component_fields', f: component %>
+  <div id="components">
+    <%= f.fields_for :components do |component| %>
+      <%= render 'component_fields', f: component %>
+    <% end %>
     <div class="links">
       <%= link_to_add_association 'Add component', f, :components %>
     </div>
-  <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

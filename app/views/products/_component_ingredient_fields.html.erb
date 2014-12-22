@@ -1,6 +1,7 @@
-<div class="nested-fields component-ingredients ">
-  <div class="controls">
-    <%= f.hidden_field :component_id %>
-    <%= f.select :ingredient_id, @ingredient_entries %>
-  </div>
-</li>
+<div class="nested-fields component-ingredients">
+  <%= f.hidden_field :component_id, value: 0, class: 'js-component-id' %>
+  <%= f.select :ingredient_id, @ingredient_entries %>
+  <%= f.label :quantity %>
+  <%= f.number_field :quantity %>
+  <%= f.select :unit, Component::UNITS %>
+</div>
