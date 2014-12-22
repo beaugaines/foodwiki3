@@ -13,3 +13,9 @@
  *= require_tree .
  *= require_self
  */
+
+.component-ingredients {
+  margin: 1em 0 2em 3em;
+  background: #ddd;
+  padding: 1em;
+}

@@ -1,0 +1,12 @@
+<div class="nested-fields">
+  <div class="controls">
+    <%= f.text_field :name %>
+    <h3>Ingredients</h3>
+    <%= f.fields_for :component_ingredients do |component_ingredient| %>
+      <%= render 'component_ingredient_fields', f: component_ingredient %>
+      <div class="links">
+        <%= link_to_add_association 'Add component ingredient', f, :component_ingredients %>
+      </div>
+    <% end %>
+  </div>
+</li>
