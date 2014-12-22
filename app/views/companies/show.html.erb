@@ -10,5 +10,9 @@
   <%= @company.category %>
 </p>
 
+
+<%= link_to 'New Product', new_company_product_path(@company) %>
+<br />
+
 <%= link_to 'Edit', edit_company_path(@company) %> |
 <%= link_to 'Back', companies_path %>
