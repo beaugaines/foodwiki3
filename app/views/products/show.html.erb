@@ -10,5 +10,29 @@
   <%= @product.name %>
 </p>
 
+<% @product.components.each do |component| %>
+  <h3><%= component.name %></h3>
+  <h5>Ingredients:</h5>
+  <fieldset>
+    <% component.component_ingredients.each do |component_ingredient| %>
+      <%= div_for(component_ingredient) do %>
+        <h2><em>Ingredient:</em><%= component_ingredient.ingredient_name %></h2>
+        <h4>Quantity:</h4>
+        <%= pluralize(component_ingredient.quantity, component_ingredient.unit) %>
+        <h4>Water:</h4>
+        <%= component_ingredient.ingredient.water %>
+        <h4>Energy (kcal):</h4>
+        <%= component_ingredient.ingredient.energy_kcal %>
+        <h4>Protein:</h4>
+        <%= component_ingredient.ingredient.protein %>
+        <h4>Lipid total</h4>
+        <%= component_ingredient.ingredient.lipid_total %>
+        <h4>Ash:</h4>
+        <%= component_ingredient.ingredient.ash %>
+      <% end %>
+    <% end %>
+  </fieldset>
+<% end %>
+
 <%= link_to 'Edit', edit_company_product_path(@company, @product) %> |
 <%= link_to 'Back', products_path %>
